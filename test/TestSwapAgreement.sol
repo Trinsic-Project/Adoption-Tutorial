@@ -6,6 +6,7 @@ import "../contracts/SwapAgreement.sol";
 
 contract TestSwapAgreement {
   SwapAgreement swapAgreement = SwapAgreement(DeployedAddresses.SwapAgreement());
+
 // Testing the initatedSwap() function
 function testUserCanInitiateSwap() public {
   uint256 returnedId = swapAgreement.initiatedSwap();
@@ -13,6 +14,14 @@ function testUserCanInitiateSwap() public {
   uint expected = 0;
 
   Assert.equal(returnedId, expected, "Swap ID should be set to 0");
+}
+
+// Testing the finalizeSwap() function 
+function testUserCanFinalizeSwap() public {
+  bytes32 returnedInitiatorSkill = swapAgreement.finalizeSwap(0);
+  bytes32 expected = "Skateboarding";
+
+  Assert.equal(returnedInitiatorSkill, expected, "Initiator skill should be set to skateboarding");
 }
 
 //Testing retrieval of a single pet's owner
