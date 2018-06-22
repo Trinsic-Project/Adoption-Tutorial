@@ -1,5 +1,5 @@
-var Adoption = artifacts.require("Adoption");
+var SwapAgreement = artifacts.require("SwapAgreement");
 
 module.exports = function(deployer) {
-  deployer.deploy(Adoption);
+  deployer.deploy(SwapAgreement);
 };
